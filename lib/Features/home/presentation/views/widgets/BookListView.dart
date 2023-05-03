@@ -9,11 +9,13 @@ class BestSellerBookListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   SizedBox(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context,index){return const BookListViewItem();} ,
+        itemBuilder: (context, index) {
+          return const BookListViewItem();
+        },
       ),
     );
   }

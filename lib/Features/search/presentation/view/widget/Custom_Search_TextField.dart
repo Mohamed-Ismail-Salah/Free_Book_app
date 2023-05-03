@@ -7,29 +7,18 @@ class CustomSearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return     TextField(
-
+    return TextField(
         decoration: InputDecoration(
-          hintText: "Search",
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-                color: Colors.white
-            ),
-            borderRadius: BorderRadius.circular(12),
-
-          ),
-          focusedBorder:  OutlineInputBorder(
-            borderSide: const BorderSide(
-                color: Colors.white
-            ),
-            borderRadius: BorderRadius.circular(12),
-
-          ),
-          suffixIcon: IconButton(
-              onPressed: (){},
-              icon: const Icon( Icons.search)),
-        )
-
-    );
+      hintText: "Search",
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+    ));
   }
 }

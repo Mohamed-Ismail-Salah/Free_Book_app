@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({
     Key? key,

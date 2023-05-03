@@ -11,13 +11,18 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
+    return Row(
       children: [
-              Text("BOOK FOR FREE",style: Styles.textStyle20.copyWith( fontFamily: logoFont ),),
+        Text(
+          "BOOK FOR FREE",
+          style: Styles.textStyle20.copyWith(fontFamily: logoFont),
+        ),
         const Spacer(),
-        IconButton(onPressed:(){
-          GoRouter.of(context).push(AppRouter.kBookSearchView);
-        }, icon: const Icon( Icons.search))
+        IconButton(
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kBookSearchView);
+            },
+            icon: const Icon(Icons.search))
       ],
     );
   }

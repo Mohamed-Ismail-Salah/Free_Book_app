@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
           Center(
             child: AnimatedTextKit(
               onFinished: () {
-               GoRouter.of(context).push(AppRouter.kHome);
+                GoRouter.of(context).push(AppRouter.kHome);
               },
               pause: const Duration(milliseconds: 200),
               totalRepeatCount: 1,

@@ -12,8 +12,8 @@ class BastSellerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
-      onTap:(){
+    return GestureDetector(
+      onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: SizedBox(
@@ -64,7 +64,9 @@ class BastSellerItem extends StatelessWidget {
                       style: Styles.textStyle20
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(width: 50,),
+                    const SizedBox(
+                      width: 50,
+                    ),
                     const BookRating()
                   ],
                 )

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppBarBookDetails extends StatelessWidget {
@@ -10,9 +9,9 @@ class AppBarBookDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        IconButton(onPressed:  (){}, icon:  const Icon(Icons.close)),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.close)),
         const Spacer(),
-        IconButton(onPressed:  (){}, icon:  const Icon(Icons.shopping_cart)),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
       ],
     );
   }
