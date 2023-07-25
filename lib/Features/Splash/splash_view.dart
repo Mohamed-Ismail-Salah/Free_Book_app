@@ -24,9 +24,9 @@ class SplashScreen extends StatelessWidget {
           Center(
             child: AnimatedTextKit(
               onFinished: () {
-                GoRouter.of(context).push(AppRouter.kHome);
+                GoRouter.of(context).pushReplacement(AppRouter.kHome);
               },
-              pause: const Duration(milliseconds: 200),
+              pause: const Duration(milliseconds: 100),
               totalRepeatCount: 1,
               animatedTexts: [
                 WavyAnimatedText('Read  For  Free',

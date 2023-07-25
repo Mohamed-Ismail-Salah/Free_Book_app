@@ -1,36 +1,36 @@
+import 'package:book_app/Features/home/data/models/book_modle/book_modle.dart';
 import 'package:book_app/core/utils/app_router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../../core/utils/styles.dart';
 import 'custom-book-Rating.dart';
 
 class BastSellerItem extends StatelessWidget {
-  const BastSellerItem({
-    Key? key,
-  }) : super(key: key);
-
+  BastSellerItem({Key? key, required this.bookModel}) : super(key: key);
+  BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView,extra: bookModel);
       },
       child: SizedBox(
         height: 100,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.7 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.blue,
-                    image: const DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"))),
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: AspectRatio(
+                  aspectRatio: 2.7 / 4,
+                  child: CachedNetworkImage(
+                    imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? "",
+                    fit: BoxFit.fill,
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  )),
             ),
             const SizedBox(
               width: 30,
@@ -40,8 +40,8 @@ class BastSellerItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
-                  child: const Text(
-                    "Harry Potter and the Goblet of Fire",
+                  child: Text(
+                    bookModel.volumeInfo?.title ?? "",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle18,
@@ -50,9 +50,10 @@ class BastSellerItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  "J.K. Rowling",
-                  style: Styles.textStyle14,
+                Text(
+                  bookModel.volumeInfo?.authors![0],
+                  style: Styles.textStyle14.copyWith(
+                      color: Colors.white54, fontWeight: FontWeight.w900),
                 ),
                 const SizedBox(
                   height: 3,
@@ -60,14 +61,14 @@ class BastSellerItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "19.99 €",
+                      "Free",
                       style: Styles.textStyle20
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       width: 50,
                     ),
-                    const BookRating()
+
                   ],
                 )
               ],

@@ -1,3 +1,4 @@
+import 'package:book_app/Features/home/data/models/book_modle/book_modle.dart';
 import 'package:flutter/material.dart';
 import 'BookDetailsSection.dart';
 import 'SimilarBooksSection.dart';
@@ -5,8 +6,8 @@ import 'costom-app-bar-book-details.dart';
 import 'custom_BookAction.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
-
+  const  BookDetailsBody({super.key, required this.bookModel});
+final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var wight = MediaQuery.of(context).size.width;
@@ -19,11 +20,13 @@ class BookDetailsBody extends StatelessWidget {
               child: Column(
                 children: [
                   const AppBarBookDetails(),
-                  BookDetailsSection(wight: wight),
+                  BookDetailsSection(wight: wight, bookModel:  bookModel,),
                   const SizedBox(
                     height: 30,
                   ),
-                  const BookAction(),
+                    BookAction(book:  bookModel,
+
+                  ),
                   const Expanded(
                       child: SizedBox(
                     height: 30,

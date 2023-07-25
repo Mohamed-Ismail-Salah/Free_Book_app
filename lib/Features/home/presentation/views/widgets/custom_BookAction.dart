@@ -1,31 +1,41 @@
+import 'package:book_app/Features/home/data/models/book_modle/book_modle.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
 class BookAction extends StatelessWidget {
-  const BookAction({
+    const BookAction({
     super.key,
+      required this.book,
   });
-
+final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: const [
+      children:   [
         Expanded(
             child: CustomButton(
           backgroundColor: Colors.white,
           textColor: Colors.black,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(8), topLeft: Radius.circular(8)),
-          name: "19.99€",
+          name: "Free", onPressed: () {
+
+            },
         )),
         Expanded(
             child: CustomButton(
-          backgroundColor: Color(0xffEF8262),
+          backgroundColor: const Color(0xffEF8262),
           textColor: Colors.white,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(8), topRight: Radius.circular(8)),
-          name: 'Free preview',
+          name: 'Free preview', onPressed: () async{
+              final Uri url = Uri.parse(book.volumeInfo?.previewLink??"");
+              if (!await launchUrl(url)) {
+              throw Exception('Could not launch $url');
+              }
+            },
         )),
       ],
     );

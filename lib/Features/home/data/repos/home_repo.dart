@@ -3,6 +3,7 @@ import 'package:book_app/core/error/faliure.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<Either<Filure, List<BookModle>>> fetchBestSellerBook();
-  Future<Either<Filure, List<BookModle>>> fetchFeaturedBook();
+  Future<Either<Failure, List<BookModel>>> fetchBestSellerBook();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBook();
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBook({required String category});
 }

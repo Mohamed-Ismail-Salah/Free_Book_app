@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../home/presentation/similer_books_cubit/similar_books_cubit.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({
@@ -8,6 +11,11 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (inp){
+        BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(
+            category:  inp,
+        );
+      },
         decoration: InputDecoration(
       hintText: "Search",
       enabledBorder: OutlineInputBorder(

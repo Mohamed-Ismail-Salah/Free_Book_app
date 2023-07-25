@@ -27,22 +27,22 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image:
+
   animated_text_kit: null
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
+  dio: null
+  flutter_bloc:
   flutter:
     sdk: flutter
   flutter_screenutil: null
   font_awesome_flutter: null
+  get_it: ^7.4.1
   go_router: null
+  url_launcher: ^6.1.11
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter

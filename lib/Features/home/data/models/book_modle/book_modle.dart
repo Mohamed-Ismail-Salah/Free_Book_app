@@ -3,7 +3,7 @@ import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class BookModle {
+class BookModel {
   String? kind;
   String? id;
   String? etag;
@@ -13,7 +13,7 @@ class BookModle {
   AccessInfo? accessInfo;
   SearchInfo? searchInfo;
 
-  BookModle({
+  BookModel({
     this.kind,
     this.id,
     this.etag,
@@ -24,7 +24,7 @@ class BookModle {
     this.searchInfo,
   });
 
-  factory BookModle.fromJson(Map<String, dynamic> json) => BookModle(
+  factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
         kind: json['kind'] as String?,
         id: json['id'] as String?,
         etag: json['etag'] as String?,
